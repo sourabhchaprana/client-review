@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html> 
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+
+<link rel="apple-touch-icon" type="image/png"
+   href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon"
+    href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type=""
+    href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111">
+<title>Client Review</title>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+ <meta property="fb:page_id" content=""/>
+ <style type="text/css">
+.progress-bar{
+	background-color: #82C424;
+}
+.main-card{
+	box-shadow: 8px 8px 30px 0 rgb(42 67 113 / 15%);
+}
+.card{
+	padding: 20px 70px 70px 70px;
+	margin-top: 50px;
+	border-radius: 25px;
+	margin-bottom: 20px;
+}
+
+.radio-yes-label{
+	margin-right: 20px;
+}
+.main-card center h1{
+ font-weight: bold;
+}
+
+/*for input fileds*/
+
+
+.effect-1{
+	border: 0;
+    padding: 7px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+ 
+}
+
+
+.effect-1 ~ .focus-border{
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    width: 0;
+    height: 2px;
+    background-color: #82C424;
+    transition: 0.4s;
+    }
+.effect-1:focus ~ .focus-border{
+	width: 100%;
+	 transition: 0.4s;
+}
+
+.form-group{
+	padding-right: 0px;
+}
+.btn-success{
+	color: #82C424;
+    background-color: transparent;
+    background-image: none;
+    border-color: #82C424;
+    display: block;
+    margin: 20px auto;
+    border-radius: 25px;
+    font-size: 17px;
+    padding: 5px 25px 5px 25px;
+}
+
+
+.btn-success:hover{
+    color: #fff;
+    background-color: #82C424 !important;
+    border-color: #82C424 !important;
+}
+
+/*[type="radio"]:checked+label:after {
+  background-color: #82C424;
+  border: 2px solid #82C424;
+  
+}
+*/
+
+ .customRadio input[type="radio"] {
+     position: absolute;
+     left: -9999px
+ }
+
+ .customRadio input[type="radio"]+label {
+     position: relative;
+     padding: 0 0 0 40px;
+     margin-top: 10px;
+     cursor: pointer
+ }
+
+ .customRadio input[type="radio"]+label:before {
+     content: '';
+     background: #fff;
+     border: 2px solid #82C424;
+     height: 18px;
+     width: 18px;
+     border-radius: 50%;
+     position: absolute;
+     top: 0;
+     left: 0
+ }
+
+ .customRadio input[type="radio"]+label:after {
+     content: '';
+     background: #82C424;
+     width: 8px;
+     height: 8px;
+     border-radius: 50%;
+     position: absolute;
+     top: 5px;
+     left: 5px;
+     opacity: 0;
+     transform: scale(2);
+     transition: transform 0.3s linear, opacity 0.3s linear
+ }
+
+ .customRadio input[type="radio"]:checked+label:after {
+     opacity: 1;
+     transform: scale(1)
+ }
+::-webkit-input-placeholder{
+	color: #ccc;
+	font-family: sans-serif;
+}
+
+.textarea-input{
+	margin-bottom: -4px;
+    padding-bottom: 0px;
+    resize: none;
+}
+
+p{    font-size: 16px;
+       font-family: sans-serif;
+    padding-top: 7px;
+    font-weight: 600;
+}
+
+ </style>
+ <style type="text/css">
+ 	.stars {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-left: -12px;
+  margin-bottom: 15px;
+      /*margin-top: -55px;*/
+
+}
+
+.stars__star-icon {
+  stroke: #82C424;
+  stroke-width: 2px;
+  fill: transparent;
+  transition: 0.1s all;
+}
+
+.stars__star {
+  width: 25px;
+  height: 15px;
+  position: relative;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.stars__checkbox {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.stars__star:hover > .stars__star-icon {
+  fill: #82C424;
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+  fill: #82C424;
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+  fill: #82C424;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+  fill: #82C424;
+}
+
+ </style>
+
+<style type="text/css">
+	.mrp-container{
+  margin-bottom:15px;
+}
+
+.mrp-icon{
+  border: solid 1px #ddd;
+  border-radius: 5px 0px 0px 5px;
+  color: #82C424;
+  background: #eee;
+  padding: 7px;
+  margin-right:0px;
+}
+
+.mrp-monthdisplay{
+  display:inline-block!important;
+  border: solid 1px #ddd;
+  padding: 5px 12px 5px 8px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #fff;
+  cursor:pointer;
+  margin-left: -5px;
+}
+
+.mrp-lowerMonth, .mrp-upperMonth{
+  color: #82C424;
+  font-weight:bold;
+  font-size: 11px;
+  text-transform:uppercase;
+}
+
+.mrp-to{
+  color: #aaa;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-size: 11px;
+  text-transform: uppercase;
+  /* background-color: #eee; */
+  padding: 5px 3px 5px 3px;
+}
+
+.mpr-calendar{
+  display:inline-block;
+  padding: 3px 5px;
+  /*border-right: solid #999 1px;*/
+}
+
+.mpr-calendar::last-child{
+  border-right: none;  
+}
+
+.mpr-month{
+  padding: 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.mpr-calendar h5{
+  width:100%;
+  text-align:center;
+  font-weight:bold;
+  font-size:18px
+}
+
+.mpr-selected{
+  background: #82C424 !important;
+  color: #fff;
+}
+
+.mpr-month:hover{
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #ddd inset;
+  cursor:pointer;
+}
+
+.mpr-selected.mpr-month:hover{
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.mpr-calendarholder .col-xs-6 {
+  max-width: 250px;
+  min-width: 250px;
+}
+
+.mpr-calendarholder .col-xs-1 {
+  max-width: 150px;
+  min-width: 150px;
+}
+
+.mpr-calendarholder .btn-info{
+  background-color: #82C424;
+  border-color: #406670;
+  width:100%;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 10px 0px;
+}
+
+
+.mpr-quickset{
+  color: #666;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.mpr-yeardown, .mpr-yearup{
+  margin-left: 5px;
+  cursor: pointer;
+  color: #666;
+}
+
+.mpr-yeardown{
+  float:left;
+}
+
+.mpr-yearup{
+  float:right;
+}
+
+.mpr-yeardown:hover,.mpr-yearup:hover{
+  color: #82C424;
+}
+
+.mpr-calendar:first .mpr-selected:first{
+    background-color: #82C424;
+}
+
+.mpr-calendar:last .mpr-selected:last{
+    background-color: #82C424;
+}
+
+.popover{
+  max-width: 1920px!important;
+}
+.mpr-calendarholder .col-xs-1{
+  display: none;
+}
+
+
+
+/*progress bar css*/
+
+.textSection { 
+  padding: 18px 24px; 
+  text-align: center;
+}
+.textSection ._title {
+  display: block;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.textSection p { line-height: 24px; }
+.progress { 
+  margin-bottom: 8px;
+  height: 12px; 
+  border-radius: 6px;
+  background-color: #f1f8fa;
+}
+.tooltipSection {
+  position: relative;  
+  margin-top: 50px;
+}
+.progress .determinate {
+  background-color: #82C424;
+  background-image: linear-gradient(147deg, #d7ecb9 0%, #82C424 74%);}
+._tooltip { 
+  display: inline-block;
+  position: absolute;
+  left: calc(0% - 18px);
+  background-color: #82C424;
+  background-image: linear-gradient(147deg, #d7ecb9 0%, #82C424 74%); 
+  color: #fff;
+  top: -42px;
+  line-height: 26px;
+  font-size: 12px;
+  text-align: center;
+  width: 48px;
+  border-radius: 4px;
+}
+._tooltip:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    width: 0;
+    height: 0;
+    border-top: solid 6px #82C424;
+    border-left: solid 6px transparent;
+    border-right: solid 6px transparent;
+}
+.progressBottomTxt { 
+  font-weight: 500;
+  font-size: 12px; 
+  display: block;
+  display: table;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.progressBottomTxt ._left { 
+  display: table-cell;
+  width: 50%;
+  text-align: left;
+}
+.progressBottomTxt ._right { 
+  display: table-cell;
+  width: 50%;
+  text-align: right;
+}
+.progressBottomTxt > div > span {
+  color: #000;
+}
+.progress .determinate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 12px;
+    border-radius: 15px;
+    -webkit-transition: width .3s linear;
+    transition: width .3s linear;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-------- navbar ---------->
+
+  
+
+<section>
+	<div class="container mt-5 mb-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card p-5 main-card">
+					<center><img src="exmyb_logo (1).png" width="130" height="50"><br><h3 style="text-align: end;">Vendor Name</h3></center>
+                         <div class="tooltipSection">
+						      <div class="_tooltip progress-top">0%</div>
+						      <div class="progress">
+						        <div class="determinate progress-bar">
+						        </div>
+						      </div>
+						      <div class="progressBottomTxt">
+						        <div class="_left">
+						          Raised: <span class="progress-top">0%</span>
+						        </div>
+						        <div class="_right">
+						          Goal: <span>100%</span>
+						        </div>
+						      </div>
+						  </div>
+                         <form class="mt-5" id="form">
+
+                        <div class="row">
+                         	<div class="col-md-6">
+                              <p>What is your name and the name of the company you are representing? </p>
+                         	</div> 
+                         	<div class="col-md-6 form-group">
+                         		<input class="effect-1 input-value" type="text" placeholder="Eg.John Doe & Exmyb">
+                                  <span class="focus-border"></span>
+                         	</div>	
+                         </div>
+
+                      <!-----  start datepicker ------->
+
+                         <div class="row">
+                            <div class="col-md-6">
+                            	<p>What date was the project started? Calender(Month & Year)</p>
+                            </div>
+                            <div class=" col-md-6">
+							 <div id="sla-data-range" class="mrp-container nav navbar-nav input-value">
+							          <span class="mrp-icon"><i class="fa fa-calendar"></i></span>
+							          <div class="mrp-monthdisplay">
+							            <span class="mrp-lowerMonth">Jul 2014</span>
+							            <span class="mrp-to"> to </span>
+							            <span class="mrp-upperMonth">Aug 2014</span>
+							          </div>
+							        <input type="hidden" value="201407" id="mrp-lowerDate" />
+							        <input type="hidden" value="201408" id="mrp-upperDate" />
+							      </div>
+					        </div>
+					    </div>
+
+                         <!--  end datepicker section ----> 
+
+                      <div class="row">
+                         	<div class="col-md-6">
+                              <p>What was the nature of the project? </p>
+                         	</div> 
+                         	<div class="col-md-6 form-group">
+                         		<input class="effect-1 input-value" type="text" placeholder="Eg. Web Application, Mobile Application">
+                                  <span class="focus-border"></span>
+                         	</div>	
+                         </div>
+
+                         <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Quality of work? </p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star" name="star">
+							  <label class="stars__star" for="first-star">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star" name="star">
+							  <label class="stars__star" for="second-star">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star" name="star">
+							  <label class="stars__star" for="third-star">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star" name="star">
+							  <label class="stars__star" for="fourth-star">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star" name="star">
+							  <label class="stars__star" for="fifth-star">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                         </div>
+
+
+                          <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Timeliness of vendor?</p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-2" name="star-2">
+							  <label class="stars__star" for="first-star-2">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_2"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-2" name="star-2">
+							  <label class="stars__star" for="second-star-2">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_2"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-2" name="star-2">
+							  <label class="stars__star" for="third-star-2">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_2"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-2" name="star-2">
+							  <label class="stars__star" for="fourth-star-2">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_2"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-2" name="star-2">
+							  <label class="stars__star" for="fifth-star-2">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_2"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                         </div>
+
+
+
+                          <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Communication skills of vendor? </p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-3" name="star-3">
+							  <label class="stars__star" for="first-star-3">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-3" name="star-3">
+							  <label class="stars__star" for="second-star-3">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-3" name="star-3">
+							  <label class="stars__star" for="third-star-3">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-3" name="star-3">
+							  <label class="stars__star" for="fourth-star-3">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-3" name="star-3">
+							  <label class="stars__star" for="fifth-star-3">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                            </div>
+
+
+
+
+                          <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Involvement of vendor? </p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-4" name="star-4">
+							  <label class="stars__star" for="first-star-4">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-4" name="star-4">
+							  <label class="stars__star" for="second-star-4">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-4" name="star-4">
+							  <label class="stars__star" for="third-star-4">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-4" name="star-4">
+							  <label class="stars__star" for="fourth-star-4">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-4" name="star-4">
+							  <label class="stars__star" for="fifth-star-4">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                            </div>
+
+
+                           <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Overall experience of vendor?</p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-5" name="star-5">
+							  <label class="stars__star" for="first-star-5">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-5" name="star-5">
+							  <label class="stars__star" for="second-star-5">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-5" name="star-5">
+							  <label class="stars__star" for="third-star-5">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-5" name="star-5">
+							  <label class="stars__star" for="fourth-star-5">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-5" name="star-5">
+							  <label class="stars__star" for="fifth-star-5">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                            </div>
+
+
+                           <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">Overall experience of ExMyB & Key Account Manager?</p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-6" name="star-6">
+							  <label class="stars__star" for="first-star-6">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-6" name="star-6">
+							  <label class="stars__star" for="second-star-6">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-6" name="star-6">
+							  <label class="stars__star" for="third-star-6">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-6" name="star-6">
+							  <label class="stars__star" for="fourth-star-6">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-6" name="star-6">
+							  <label class="stars__star" for="fifth-star-6">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                            </div>
+
+
+                             <div class="row">
+                         	<div class="col-md-6">
+                              <p class="star-para">How likely to recommend ExMyB ?</p>
+                         	</div>
+                         	<div class="col-md-6 stars">
+                         		<input class="stars__checkbox" type="radio" id="first-star-7" name="star-7">
+							  <label class="stars__star" for="first-star-7">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="second-star-7" name="star-7">
+							  <label class="stars__star" for="second-star-7">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="third-star-7" name="star-7">
+							  <label class="stars__star" for="third-star-7">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fourth-star-7" name="star-7">
+							  <label class="stars__star" for="fourth-star-7">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+							  <input class="stars__checkbox" type="radio" id="fifth-star-7" name="star-7">
+							  <label class="stars__star" for="fifth-star-7">
+							    <svg class="stars__star-icon" version="1.1" id="Capa_1"  x="0px" y="0px" viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+							      <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+							                    10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 " />
+							    </svg>
+							  </label>
+                         	</div>
+                            </div>
+                            <!------------ end star section ----------------->
+
+                           
+                        <div class="row">
+                         	<div class="col-md-6 star-para">
+                              <p>What did you find most impressive about the vendor? </p>
+                         	</div> 
+                         	<div class="col-md-6 form-group" >
+                         		<textarea cols="4"class="effect-1 textarea-input input-value" type="text" placeholder="Write Something..."></textarea> 
+                                  <span class="focus-border"></span>
+                         	</div>	
+                         </div>
+
+
+                       <div class="row">
+                         <div class="col-md-6">
+                              <p>Would you work with this vendor again? </p>
+                         </div> 
+                          
+                         <div class="col-md-6 form-group form-check customRadio">
+                        
+							  <input class="form-check-input mr-5 check" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+							  <label class="form-check-label" for="exampleRadios1">
+							    <strong class="radio-yes-label">YES</strong>
+							  </label>
+							
+							  <input class="form-check-input check" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+							  <label class="form-check-label" for="exampleRadios2">
+							    <strong>NO</strong>
+							  </label>
+							
+                         </div>
+                     </div>
+
+                     <div class="row">
+                         	<div class="col-md-6">
+                              <p>Could you provide any shareable link of the work that was done? </p>
+                         	</div> 
+                         	<div class="col-md-6 form-group">
+                         		<input class="effect-1 input-value" type="text" placeholder="https:/www./..../.com/.in">
+                                  <span class="focus-border"></span>
+                         	</div>	
+                         </div>
+
+                        <div class="row">
+                         	<div class="col-md-6">
+                              <p>Why did you select/shortlist the vendor? </p>
+                         	</div> 
+                         	<div class="col-md-6 form-group">
+                         		<input class="effect-1 input-value" type="text" placeholder="Name of Shortlist vendor">
+                                  <span class="focus-border"></span>
+                         	</div>	
+                         </div>
+                      <button class="btn btn-success">Submit</button>
+                        
+                         
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+// input fileds
+
+// $(window).load(function(){
+	
+// 		$('.input-value').on('keyup', function(){
+// 			alert('gfhvjbn')
+// 			    var value = this.value;
+// 			   var bar = 
+// 			    $('#progress-bar-1')
+// 			        .css('width', value+'%')
+// 			        .attr('aria-valuenow', value);    
+// 			}).keyup();
+// 	});
+
+
+   $('#form').on('keyup change paste', 'input, textarea,.mpr-month', function(){
+	var numValid = 0;
+	
+	
+		$("#form .input-value").each(function() {
+		    if (this.value) {
+		        numValid++;
+		    }
+		});
+
+ 
+var progress = $(".progress-bar"),
+progressMessage = $(".progress-top");
+  
+
+if (numValid == 0) {
+    progress.css("width", "0%");
+    progressMessage.text("0%");
+    progressMessage.css("left", "calc(0% - 18px)");
+}
+if (numValid == 1) {
+    progress.css("width", "16.66%");
+     progressMessage.text("16.66%");
+    progressMessage.css("left", "calc(16.66% - 18px)");
+  
+}
+if (numValid == 2) {
+    progress.css("width", "33.33%");
+     progressMessage.text("33.33%");
+    progressMessage.css("left", "calc(33.33% - 18px)");
+ 
+}
+if (numValid == 3) {
+    progress.css("width", "49.98%");
+    progressMessage.text("49.98%");
+    progressMessage.css("left", "calc(49.98% - 18px)");
+   
+}
+if (numValid == 4) {
+    progress.css("width", "66.64%");
+    progressMessage.text("66.64%");
+    progressMessage.css("left", "calc(66.64% - 18px)");
+   
+}
+if (numValid == 5) {
+    progress.css("width", "82.64%");
+    progressMessage.text("82.64%");
+    progressMessage.css("left", "calc(82.64% - 18px)");
+ 
+}
+if (numValid == 6) {
+    progress.css("width", "100%");
+    progressMessage.text("100%");
+    progressMessage.css("left", "calc(100% - 18px)");
+ 
+}
+// if (numValid == 7) {
+//     progress.css("width", "100%");
+ 
+// }
+// if (numValid == 8) {
+//     progress.css("width", "100%");
+ 
+// }
+
+});
+
+	// date picker
+	var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+$(function () {
+  startMonth = 7;
+  startYear = 2014
+  endMonth = 8;
+  endYear = 2015;
+  fiscalMonth = 7;
+  if(startMonth < 10)
+  	startDate = parseInt("" + startYear + '0' + startMonth + "");
+  else
+    startDate = parseInt("" + startYear  + startMonth + "");
+  if(endMonth < 10)
+  	endDate = parseInt("" + endYear + '0' + endMonth + "");
+  else
+    endDate = parseInt("" + endYear + endMonth + "");
+  
+  content = '<div class="row mpr-calendarholder">';
+  calendarCount = endYear - startYear;
+  if(calendarCount == 0)
+    calendarCount++;
+  var d = new Date();
+  for(y = 0; y < 2; y++){
+		content += '<div class="col-xs-6" ><div class="mpr-calendar row" id="mpr-calendar-' + (y+1) + '">'
+ 						 + '<h5 class="col-xs-12"><i class="mpr-yeardown fa fa-chevron-circle-left"></i><span>' + (startYear + y).toString() + '</span><i class="mpr-yearup fa fa-chevron-circle-right"></i></h5><div class="mpr-monthsContainer"><div class="mpr-MonthsWrapper">';
+    for(m=0; m < 12; m++){
+      var monthval;
+      if((m+1) < 10)
+        monthval = "0" + (m+1);
+      else
+        monthval = "" + (m+1);
+			content += '<span data-month="' + monthval  + '" class="col-xs-3 mpr-month">' + MONTHS[m] + '</span>';
+    }
+    content += '</div></div></div></div>';
+  }
+  content += '<div class="col-xs-1"> <h5 class="mpr-quickset">Quick Set</h5>';
+  content += '<button class="btn btn-info mpr-fiscal-ytd">Fiscal YTD</button>';
+  content += '<button class="btn btn-info mpr-ytd">YTD</button>';
+  content += '<button class="btn btn-info mpr-prev-fiscal">Previous FY</button>';
+  content += '<button class="btn btn-info mpr-prev-year">Previous Year</button>';
+  content += '</div>';
+  content += '</div>';
+  
+  $(document).on('click','.mpr-month',function(e){
+    e.stopPropagation();
+  		$month = $(this);
+    	var monthnum = $month.data('month');
+    	var year = $month.parents('.mpr-calendar').children('h5').children('span').html();
+        if($month.parents('#mpr-calendar-1').size() > 0){
+          //Start Date
+          startDate = parseInt("" + year + monthnum);
+          if(startDate > endDate){
+            
+            if(year != parseInt(endDate/100))
+              $('.mpr-calendar:last h5 span').html(year);
+               endDate = startDate;
+          }
+        }else{
+          //End Date
+          endDate = parseInt("" + year + monthnum);
+          if(startDate > endDate){
+            if(year != parseInt(startDate/100))
+              $('.mpr-calendar:first h5 span').html(year);
+            startDate = endDate;
+          }
+        }
+    
+    	paintMonths();
+  });
+  
+  
+  $(document).on('click','.mpr-yearup',function(e){
+    	e.stopPropagation();
+  		var year = parseInt($(this).prev().html());
+    	year++;
+    	$(this).prev().html(""+year);
+   	 	$(this).parents('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $(this).parents('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+      });
+  });
+  
+  $(document).on('click','.mpr-yeardown',function(e){
+    	e.stopPropagation();
+  		var year = parseInt($(this).next().html());
+    	year--;
+    	$(this).next().html(""+year);
+   	 	//paintMonths();
+      $(this).parents('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $(this).parents('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+      });
+  });
+  
+  $(document).on('click','.mpr-ytd', function(e){
+    e.stopPropagation();
+    var d = new Date();
+    startDate = parseInt(d.getFullYear() + "01");
+    var month = d.getMonth() + 1;
+    if(month < 9)
+      month = "0" + month;
+    endDate = parseInt("" + d.getFullYear() + month);
+    $('.mpr-calendar').each(function(){
+      var $cal = $(this);
+      var year = $('h5 span',$cal).html(d.getFullYear());
+    });
+    $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+    });
+  });
+  
+  $(document).on('click','.mpr-prev-year', function(e){
+    e.stopPropagation();
+    var d = new Date();
+    var year = d.getFullYear()-1;
+    startDate = parseInt(year + "01");
+    endDate = parseInt(year + "12");
+    $('.mpr-calendar').each(function(){
+      var $cal = $(this);
+      $('h5 span',$cal).html(year);
+    });
+    $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+    });
+  });
+  
+  $(document).on('click','.mpr-fiscal-ytd', function(e){
+    e.stopPropagation();
+    var d = new Date();
+    var year;
+    if((d.getMonth()+1) < fiscalMonth)
+      year = d.getFullYear() - 1;
+    else
+      year = d.getFullYear();
+    if(fiscalMonth < 10)
+      fm = "0" + fiscalMonth;
+    else
+      fm = fiscalMonth;
+    if(d.getMonth()+1 < 10)
+      cm = "0" + (d.getMonth()+1);
+    else
+      cm = (d.getMonth()+1);
+    startDate = parseInt("" + year + fm);
+    endDate = parseInt("" + d.getFullYear() + cm);
+    $('.mpr-calendar').each(function(i){
+      var $cal = $(this);
+      if(i == 0)
+      	$('h5 span',$cal).html(year);
+      else
+        $('h5 span',$cal).html(d.getFullYear());
+    });
+    $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+    });
+  });
+  
+  $(document).on('click','.mpr-prev-fiscal', function(){
+    var d = new Date();
+    var year;
+    if((d.getMonth()+1) < fiscalMonth)
+      year = d.getFullYear() - 2;
+    else
+      year = d.getFullYear() - 1;
+    if(fiscalMonth < 10)
+      fm = "0" + fiscalMonth;
+    else
+      fm = fiscalMonth;
+    if(fiscalMonth -1 < 10)
+      efm = "0" + (fiscalMonth-1);
+    else
+      efm = (fiscalMonth-1);
+    startDate = parseInt("" + year + fm);
+    endDate = parseInt("" + (d.getFullYear() - 1) + efm);
+    $('.mpr-calendar').each(function(i){
+      var $cal = $(this);
+      if(i == 0)
+      	$('h5 span',$cal).html(year);
+      else
+        $('h5 span',$cal).html(d.getFullYear()-1);
+    });
+    $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeOut(175,function(){
+        paintMonths();
+        $('.mpr-calendar').find('.mpr-MonthsWrapper').fadeIn(175);
+    });
+  });
+  
+  var mprVisible = false;
+  var mprpopover = $('.mrp-container').popover({
+    container: "body",
+    placement: "bottom",
+    html: true,
+    content: content
+  }).on('show.bs.popover', function () {
+    $('.popover').remove();
+    var waiter = setInterval(function(){
+      if($('.popover').size() > 0){
+        clearInterval(waiter);
+        setViewToCurrentYears();
+    		paintMonths();
+      }
+    },50);
+  }).on('shown.bs.popover', function(){
+    mprVisible = true;
+  }).on('hidden.bs.popover', function(){
+    mprVisible = false;
+  }); 
+  
+  $(document).on('click','.mpr-calendarholder',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  $(document).on("click",".mrp-container",function(e){
+    if(mprVisible){
+      e.preventDefault();
+    	e.stopPropagation();
+      mprVisible = false;
+    }
+  });
+  $(document).on("click",function(e){
+    if(mprVisible){
+    	$('.mpr-calendarholder').parents('.popover').fadeOut(200,function(){
+        $('.mpr-calendarholder').parents('.popover').remove();
+        $('.mrp-container').trigger('click');
+      });
+      mprVisible = false;
+    }
+  });
+});
+
+function setViewToCurrentYears(){
+  	var startyear = parseInt(startDate / 100);
+    var endyear = parseInt(endDate / 100);
+  	$('.mpr-calendar h5 span').eq(0).html(startyear);
+  	$('.mpr-calendar h5 span').eq(1).html(endyear);
+}
+
+function paintMonths(){
+    $('.mpr-calendar').each(function(){
+      var $cal = $(this);
+      var year = $('h5 span',$cal).html();
+      $('.mpr-month',$cal).each(function(i){
+        if((i+1) > 9)
+          cDate = parseInt("" + year + (i+1));
+        else
+          cDate = parseInt("" + year+ '0' + (i+1));
+        if(cDate >= startDate && cDate <= endDate){
+            $(this).addClass('mpr-selected');
+        }else{
+          $(this).removeClass('mpr-selected');
+        }
+      });
+    });
+  $('.mpr-calendar .mpr-month').css("background","");
+    //Write Text
+    var startyear = parseInt(startDate / 100);
+    var startmonth = parseInt(safeRound((startDate / 100 - startyear)) * 100);
+    var endyear = parseInt(endDate / 100);
+    var endmonth = parseInt(safeRound((endDate / 100 - endyear)) * 100);
+    $('.mrp-monthdisplay .mrp-lowerMonth').html(MONTHS[startmonth - 1] + " " + startyear);
+    $('.mrp-monthdisplay .mrp-upperMonth').html(MONTHS[endmonth - 1] + " " + endyear);
+    $('.mpr-lowerDate').val(startDate);
+    $('.mpr-upperDate').val(endDate);
+  	if(startyear == parseInt($('.mpr-calendar:first h5 span').html()))
+  		$('.mpr-calendar:first .mpr-selected:first').css("background","#82C424");
+    if(endyear == parseInt($('.mpr-calendar:last h5 span').html()))
+      $('.mpr-calendar:last .mpr-selected:last').css("background","#82C424");
+  }
+
+  function safeRound(val){
+    return Math.round(((val)+ 0.00001) * 100) / 100;
+  }
+</script>
+
+
+</body>
+</html>
