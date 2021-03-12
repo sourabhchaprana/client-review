@@ -3,11 +3,14 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="apple-mobile-web-app-title" content="CodePen">
+        <link href="https://django-b2b.s3.amazonaws.com/static/images/logo/favicon.png" rel="icon">
+        <link href="https://django-b2b.s3.amazonaws.com/static/images/logo/apple-touch-icon.png" rel="apple-touch-icon">
       <title>Client Review</title>
       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" /> -->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
       <meta property="fb:page_id" content=""/>
       <link rel="stylesheet" type="text/css" href="client-review.css">
   
@@ -53,19 +56,19 @@
                            <div class="col-md-6">
                               <p>What date was the project started? Calender(Month & Year)</p>
                            </div>
-                           <div class=" col-md-6">
-                              <div id="sla-data-range" class="mrp-container nav navbar-nav input-value">
-                                 <span class="mrp-icon"><i class="fa fa-calendar"></i></span>
-                                 <div class="mrp-monthdisplay">
-                                    <span class="mrp-lowerMonth">Jul 2014</span>
-                                    <span class="mrp-to"> to </span>
-                                    <span class="mrp-upperMonth">Aug 2014</span>
-                                 </div>
-                                 <input type="hidden" value="201407" id="mrp-lowerDate" />
-                                 <input type="hidden" value="201408" id="mrp-upperDate" />
+                           <div class="form-group col-lg-6 col-m mb-4">
+                                <span class="input-group-append">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </span>
+                             
+                                  <input id="datepicker"  type="text" name="year_of_establishment"  class="effect-1" placeholder="Year of Establishment" required=""   value="09-03-2021" >
+                                  <span class="focus-border"></span>
+                                 
+                              
                               </div>
-                           </div>
                         </div>
+                     
+
                         <!--  end datepicker section ----> 
                         <div class="row">
                            <div class="col-md-6">
@@ -423,6 +426,12 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
       <script type="text/javascript" src="client-review.js"></script>
+
+      <script type="text/javascript">
+       //Establish Year - vendor form 2
+         $("#datepicker").datepicker({format: "dd-mm-yyyy"});
+      </script>
    </body>
 </html>

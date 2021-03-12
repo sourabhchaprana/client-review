@@ -359,8 +359,18 @@
          -webkit-transition: width .3s linear;
          transition: width .3s linear;
          }
+.input-group-append{
+     position: absolute;
+    right: 0;
+    padding-top: 15px;
+    color: #82C424;
 
-
+}
+.datepicker table tr td.active{
+   background-color: #82C424 !important;
+   background:#82C424 !important;
+   color:#fff !important;
+}
 
 
  /*xs*/
